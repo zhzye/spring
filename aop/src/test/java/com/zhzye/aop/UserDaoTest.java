@@ -25,11 +25,9 @@ public class UserDaoTest {
 
     @Test
     public void userDaoCGLibProxy() {
-        UserDao userDao = new UserDaoImpl();
-        UserDao proxy = (UserDao) new UserDaoCGLibProxy(userDao).createProxy();
+        UserDaoWithoutInterface userDao = new UserDaoWithoutInterface();
+        UserDaoWithoutInterface proxy = (UserDaoWithoutInterface) new UserDaoCGLibProxy(userDao).createProxy();
         proxy.saveUser();
-        proxy.deleteUser();
-        proxy.updateUser();
         proxy.getUser();
     }
 }
