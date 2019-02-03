@@ -1,6 +1,7 @@
 package com.zhzye.aop;
 
 import com.zhzye.aop.springway.Person;
+import com.zhzye.aop.springway.PersonWithoutInterface;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,9 +17,19 @@ public class SpringAopTest {
     @Resource(name = "personProxy")
     private Person person;
 
+//    @Resource(name = "personWithoutInterface")
+    @Resource(name = "personWithoutInterfaceProxy")
+    private PersonWithoutInterface personWithoutInterface;
+
     @Test
     public void person() {
         person.eat();
         person.say();
+    }
+
+    @Test
+    public void personWithoutInterface() {
+        personWithoutInterface.eat();
+        personWithoutInterface.say();
     }
 }

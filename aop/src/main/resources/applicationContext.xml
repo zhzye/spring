@@ -6,7 +6,15 @@
     <bean id="myBeforeAdvice" class="com.zhzye.aop.springway.PersonBeforeAdvice"/>
     <bean id="personProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="person"/>
-        <property name="proxyInterfaces" value="com.zhzye.aop.springway.Person"/>
+        <!-- 注释是否开启都生效 -->
+        <!--<property name="proxyInterfaces" value="com.zhzye.aop.springway.Person"/>-->
+        <property name="interceptorNames" value="myBeforeAdvice"/>
+    </bean>
+    <bean id="personWithoutInterface" class="com.zhzye.aop.springway.PersonWithoutInterface"/>
+    <bean id="personWithoutInterfaceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="personWithoutInterface"/>
+        <!-- 注释是否开启都生效 -->
+        <!--<property name="proxyTargetClass" value="true"/>-->
         <property name="interceptorNames" value="myBeforeAdvice"/>
     </bean>
 </beans>
