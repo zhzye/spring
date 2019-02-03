@@ -1,5 +1,6 @@
 package com.zhzye.aop;
 
+import com.zhzye.aop.pointcutadvisor.Student;
 import com.zhzye.aop.springway.Person;
 import com.zhzye.aop.springway.PersonWithoutInterface;
 import org.junit.Test;
@@ -21,6 +22,10 @@ public class SpringAopTest {
     @Resource(name = "personWithoutInterfaceProxy")
     private PersonWithoutInterface personWithoutInterface;
 
+//    @Resource(name = "student")
+    @Resource(name = "studentProxy")
+    private Student student;
+
     @Test
     public void person() {
         person.eat();
@@ -31,5 +36,11 @@ public class SpringAopTest {
     public void personWithoutInterface() {
         personWithoutInterface.eat();
         personWithoutInterface.say();
+    }
+
+    @Test
+    public void student() {
+        student.say();
+        student.eat();
     }
 }

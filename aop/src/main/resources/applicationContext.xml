@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--一般切面，接口方式jdk or cglib-->
     <bean id="person" class="com.zhzye.aop.springway.PersonImpl"/>
     <bean id="myBeforeAdvice" class="com.zhzye.aop.springway.PersonBeforeAdvice"/>
     <bean id="personProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
@@ -10,11 +11,23 @@
         <!--<property name="proxyInterfaces" value="com.zhzye.aop.springway.Person"/>-->
         <property name="interceptorNames" value="myBeforeAdvice"/>
     </bean>
+    <!--一般切面，无接口方式cglib-->
     <bean id="personWithoutInterface" class="com.zhzye.aop.springway.PersonWithoutInterface"/>
     <bean id="personWithoutInterfaceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="personWithoutInterface"/>
         <!-- 注释是否开启都生效 -->
         <!--<property name="proxyTargetClass" value="true"/>-->
         <property name="interceptorNames" value="myBeforeAdvice"/>
+    </bean>
+    <!--切点切面-->
+    <bean id="student" class="com.zhzye.aop.pointcutadvisor.Student"/>
+    <!--创建切点-->
+    <bean id="studentPointcutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="pattern" value=".*sa.*"/>
+        <property name="advice" ref="myBeforeAdvice"/>
+    </bean>
+    <bean id="studentProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="student"/>
+        <property name="interceptorNames" value="studentPointcutAdvisor"/>
     </bean>
 </beans>
