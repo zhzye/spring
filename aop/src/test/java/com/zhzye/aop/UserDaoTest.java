@@ -22,4 +22,14 @@ public class UserDaoTest {
         proxy.updateUser();
         proxy.getUser();
     }
+
+    @Test
+    public void userDaoCGLibProxy() {
+        UserDao userDao = new UserDaoImpl();
+        UserDao proxy = (UserDao) new UserDaoCGLibProxy(userDao).createProxy();
+        proxy.saveUser();
+        proxy.deleteUser();
+        proxy.updateUser();
+        proxy.getUser();
+    }
 }
