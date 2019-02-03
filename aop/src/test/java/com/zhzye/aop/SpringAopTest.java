@@ -21,10 +21,4 @@ public class SpringAopTest {
         person.eat();
         person.say();
     }
-
-    @Test
-    public void personAop() {
-        person.eat();
-        person.say();
-    }
 }
