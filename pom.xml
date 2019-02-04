@@ -10,6 +10,8 @@
     <modules>
         <module>aop</module>
         <module>aspectJ</module>
+      <module>jdbctemplate</module>
+      <module>jdbc</module>
     </modules>
 
     <name>demos of learning spring</name>
