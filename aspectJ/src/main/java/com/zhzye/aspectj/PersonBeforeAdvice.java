@@ -6,14 +6,14 @@ import org.aspectj.lang.annotation.*;
 
 @Aspect
 public class PersonBeforeAdvice {
-    @Before(value = "execution(* say(..))")
+    @Before(value = "sayPointcut()")
     public void before(JoinPoint joinPoint) {
-        System.out.println("before注入" + joinPoint);
+        System.out.println("before注入..." + joinPoint);
     }
 
-    @AfterReturning(value = "execution(* say(..))", returning = "result")
+    @AfterReturning(value = "sayPointcut()", returning = "result")
     public void after(JoinPoint joinPoint, Object result) {
-        System.out.println("after注入 " + joinPoint + " " + result);
+        System.out.println("after注入... " + joinPoint + " " + result);
     }
 
     @Around(value = "execution(* hi(..))")
@@ -33,4 +33,7 @@ public class PersonBeforeAdvice {
     public void finalDO() {
         System.out.println("最终通知");
     }
+
+    @Pointcut(value = "execution(* say(..))")
+    private void sayPointcut() {}
 }
