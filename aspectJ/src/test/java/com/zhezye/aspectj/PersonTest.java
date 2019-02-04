@@ -19,4 +19,9 @@ public class PersonTest {
         person.hi();
         person.say();
     }
+
+    @Test
+    public void exeThrowException() {
+        person.exeThrowException();
+    }
 }

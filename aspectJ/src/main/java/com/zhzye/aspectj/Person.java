@@ -9,4 +9,9 @@ public class Person {
         System.out.println("person say");
         return "hi, zhzye[return].";
     }
+
+    public void exeThrowException() {
+        System.out.println("exeThrowException");
+        int a = 1/0;
+    }
 }
