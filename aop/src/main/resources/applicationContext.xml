@@ -30,4 +30,10 @@
         <property name="target" ref="student"/>
         <property name="interceptorNames" value="studentPointcutAdvisor"/>
     </bean>
+    <!-- 自动创建ProxyFactoryBean Bean名称方式 -->
+    <bean id="teacher" class="com.zhzye.aop.auto.Teacher"/>
+    <bean id="teacherProxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="*cher"/>
+        <property name="interceptorNames" value="myBeforeAdvice"/>
+    </bean>
 </beans>
