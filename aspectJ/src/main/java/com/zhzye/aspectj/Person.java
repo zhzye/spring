@@ -5,7 +5,8 @@ public class Person {
         System.out.println("person hi");
     }
 
-    public void say() {
+    public String say() {
         System.out.println("person say");
+        return "hi, zhzye[return].";
     }
 }

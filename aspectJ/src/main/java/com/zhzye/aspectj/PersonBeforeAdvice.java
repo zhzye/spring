@@ -13,8 +13,8 @@ public class PersonBeforeAdvice {
         System.out.println("before注入" + joinPoint);
     }
 
-    @AfterReturning(value = "execution(* sa*(..))")
-    public void after(JoinPoint joinPoint) {
-        System.out.println("after注入 " + joinPoint);
+    @AfterReturning(value = "execution(* sa*(..))", returning = "result")
+    public void after(JoinPoint joinPoint, Object result) {
+        System.out.println("after注入 " + joinPoint + " " + result);
     }
 }
