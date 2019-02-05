@@ -9,13 +9,28 @@ import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
-public class StudentDaoTest {
+public class UserDaoTest {
     @Resource
-    private StudentDao studentDao;
+    private UserDao studentDao;
 
     @Test
-    public void getStudentCount() {
-        Integer ret = studentDao.getStudentCount();
+    public void getUsersCount() {
+        Integer ret = studentDao.getUsersCount();
         System.out.println("user count = " + ret);
+    }
+
+    @Test
+    public void saveStudentAndClassWithOpenTx() {
+        studentDao.saveStudentAndClassWithOpenTx();
+    }
+
+    @Test
+    public void createTable() {
+        studentDao.createTables();
+    }
+
+    @Test
+    public void dropTables() {
+        studentDao.dropTables();
     }
 }
