@@ -12,6 +12,7 @@
         <module>aspectJ</module>
       <module>jdbctemplate</module>
       <module>jdbc</module>
+        <module>spring-tx</module>
     </modules>
 
     <name>demos of learning spring</name>
@@ -20,5 +21,7 @@
     <spring.version>5.1.4.RELEASE</spring.version>
     <mysql.connectorJ.version>8.0.15</mysql.connectorJ.version>
     <junit.version>4.12</junit.version>
+    <aspectjweaver.version>1.9.2</aspectjweaver.version>
+    <aopalliance.version>1.0</aopalliance.version>
   </properties>
 </project>
