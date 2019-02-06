@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:applicationContextTxInspectorShortable.xml")
+@ContextConfiguration("classpath:applicationContextTx.xml")
 public class OrderServiceTxTest {
-    @Resource(name = "orderServiceTxInspectorImplProxy")
+    @Resource(name = "orderServiceTxInspectorImpl")
     private OrderService orderService;
 
     @Test
@@ -23,9 +23,9 @@ public class OrderServiceTxTest {
         List<Product> products = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             long productId = (long) (Math.random() * 100000);
-            products.add(new Product("tx_inspector_shortable_product_" + productId, orderId));
+            products.add(new Product("tx_1_product_" + productId, orderId));
         }
 
-        orderService.saveOrder(new Order("tx_inspector_shortable_order_" + orderId), products);
+        orderService.saveOrder(new Order("tx_1_order_" + orderId), products);
     }
 }
