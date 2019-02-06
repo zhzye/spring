@@ -12,7 +12,7 @@ public class ProductDaoImpl implements ProductDao {
     private JdbcTemplate jdbcTemplate;
 
     public void saveProduct(Product product) {
-        String sql = "insert into pr1oducts(product_name, order_id) values (?, ?)";
+        String sql = "insert into products(product_name, order_id) values (?, ?)";
         jdbcTemplate.update(sql, product.getProductName(), product.getOrderId());
     }
 }
