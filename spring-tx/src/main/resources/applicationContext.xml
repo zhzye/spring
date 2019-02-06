@@ -25,4 +25,6 @@
         <!--可以不声明，为了演示可选配置-->
         <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"/>
     </bean>
+    <!--为了防止注入依赖多余的配置，我们配置bean-->
+    <bean id="orderServiceImpl" class="com.zhzye.service.impl.OrderServiceImpl"/>
 </beans>

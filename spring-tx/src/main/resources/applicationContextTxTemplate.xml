@@ -24,4 +24,5 @@
     <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
         <property name="transactionManager" ref="platformTransactionManager"/>
     </bean>
+    <bean id="orderServiceTxTemplateImpl" class="com.zhzye.service.impl.OrderServiceTxTemplateImpl"/>
 </beans>

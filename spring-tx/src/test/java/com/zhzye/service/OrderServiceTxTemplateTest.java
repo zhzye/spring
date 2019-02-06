@@ -23,9 +23,9 @@ public class OrderServiceTxTemplateTest {
         List<Product> products = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             long productId = (long) (Math.random() * 100000);
-            products.add(new Product("product_" + productId, orderId));
+            products.add(new Product("tx_template_product_" + productId, orderId));
         }
 
-        orderService.saveOrder(new Order("order_" + orderId), products);
+        orderService.saveOrder(new Order("tx_template_order_" + orderId), products);
     }
 }
